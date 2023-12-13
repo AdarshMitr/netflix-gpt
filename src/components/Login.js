@@ -4,14 +4,20 @@ import { checkValidData } from "../utils/validate";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
+  const [errorMessage,setErrorMessage]=useState(null);
+  const username=useRef(null);
   const email=useRef(null);
   const password=useRef(null);
 
   const handleButtonClick=()=>{
     // Validation form data
-    //checkValidData(email,password)
-    console.log(email.current.value);
-    console.log(password.current.value);
+
+    const message=checkValidData(email.current.value,password.current.value,username.current.value);
+    setErrorMessage(message);
+   
+
+    //   Sign In / Sign Up
+
   }
   const toggleSignInForm = () => {
     setIsSignInForm(!isSignInForm);
@@ -29,6 +35,7 @@ const Login = () => {
         </h1>
         {!isSignInForm && (
           <input
+          ref={username}
             type="text"
             placeholder="Your Full Name"
             className="p-3 my-4 w-full bg-[#333] rounded-lg"
@@ -47,6 +54,7 @@ const Login = () => {
           placeholder="Password"
           className="p-3 my-4 w-full bg-[#333] rounded-lg"
         />
+        <p className="text-red-500 font-bold text-lg">{errorMessage}</p>
         <button className="p-4 my-6 bg-red-600 w-full font-bold rounded-lg" onClick={handleButtonClick}>
           {isSignInForm ? "Sign In" : "Sign Up"}
         </button>
