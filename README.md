@@ -2,8 +2,11 @@
 - used Create React App as a toolchain to start development
 - Configured Tailwindcss in my project
 - Header
+- Routing of App
 - Login Form
 - Sign Up Form
+- Form Validation
+  - useRef Hook
 
 
 # Features
