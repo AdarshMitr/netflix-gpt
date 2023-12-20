@@ -6,6 +6,6 @@ const isNameValid=/^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$/.test(username);
 if(!isNameValid) return "Username is not valid";
 if(!isEmailValid) return "Email Id is not valid";
 if(!isPasswordValid) return "Password is not valid";
-
+ return null;
 
 }
